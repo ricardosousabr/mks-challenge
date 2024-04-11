@@ -1,18 +1,48 @@
 import { CardProps } from './types'
+import {
+  CardStyled,
+  DescriptionProduct,
+  BoxTitleProduct,
+  TitleProduct,
+  TextProduct,
+  BoxImageProduct,
+  BoxButton,
+  BoxItem,
+  BoxPriceProduct,
+  BoxDescriptionProduct,
+} from './styles'
+import Button from '../Button'
 
-export default function Card({ image, title, description, text }: CardProps) {
+export default function Card({
+  image,
+  title,
+  description,
+  price,
+  text,
+}: CardProps) {
   return (
     <>
-      <div>
-        <div>
-          <img src="" alt="" />
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </div>
-        <div>
-          <p>{text}</p>
-        </div>
-      </div>
+      <CardStyled>
+        <BoxItem>
+          <BoxImageProduct>
+            <img src={image} alt="" />
+          </BoxImageProduct>
+          <BoxTitleProduct>
+            <TitleProduct>{title}</TitleProduct>
+          </BoxTitleProduct>
+          <BoxPriceProduct>
+            <p>{price}</p>
+          </BoxPriceProduct>
+          <BoxDescriptionProduct>
+            <DescriptionProduct>{description}</DescriptionProduct>
+          </BoxDescriptionProduct>
+        </BoxItem>
+        <BoxButton>
+          <Button>
+            <TextProduct>{text}</TextProduct>
+          </Button>
+        </BoxButton>
+      </CardStyled>
     </>
   )
 }
